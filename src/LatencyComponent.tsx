@@ -49,9 +49,9 @@ export default function LatencyComponent({ latencyMs }: LatencyComponentProps) {
 	const [tweetsLoading, setTweetsLoading] = useState(false);
 	const [displayedTweets, setDisplayedTweets] = useState<Tweet[]>([]);
 
-	const dnsLatency = 30;
-	const tcpHandshakeLatency = 40;
-	const tlsHandshakeLatency = 80;
+	const dnsLatency = 15;
+	const tcpHandshakeLatency = 1.5 * latencyMs;
+	const tlsHandshakeLatency = latencyMs;
 	const serverProcessingLatency = 20;
 
 	const handleAliceSendMessage = (message: string) => {

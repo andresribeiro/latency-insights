@@ -13,6 +13,7 @@ export default function App() {
 				This tool helps you analyze how network latency might affect user
 				experience across different connection types.
 				<br />
+				<br />
 				The displayed latency represents the round-trip network time (RTT),
 				similar to a ping command. For WebSocket chat, this RTT covers the
 				message propagation from sender to server and then to receiver. For HTTP
