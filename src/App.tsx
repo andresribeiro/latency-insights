@@ -4,26 +4,24 @@ export default function App() {
 	const latencyValues = [50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 1000];
 
 	return (
-		<div className="items-center flex flex-1 flex-col min-w-screen min-h-screen">
-			<h1 className="text-4xl sm:text-5xl font-bold text-white mb-6 mt-50">
+		<div className="flex flex-col items-center min-h-screen w-full p-4 sm:p-6">
+			<h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6 mt-8 text-center">
 				Latency Insights for Developers 👩‍💻
 			</h1>
 
-			<p className="max-w-2xl mx-auto text-base sm:text-lg text-gray-400 mb-10 text-center">
+			<p className="max-w-lg mx-auto text-sm sm:text-base text-gray-400 mb-8 text-center">
 				This tool helps you analyze how network latency might affect user
-				experience across different connection types.
-				<br />
-				<br />
-				The displayed latency represents the round-trip network time (RTT),
-				similar to a ping command. For WebSocket chat, this RTT covers the
-				message propagation from sender to server and then to receiver. For HTTP
-				requests, this RTT covers the network travel for the request and its
-				response.
+				experience across different connection types. The displayed latency
+				represents the round-trip network time (RTT), similar to a ping command.
+				For WebSocket chat, this RTT covers message propagation. For HTTP
+				requests, it covers the request and response travel time.
 			</p>
 
-			{latencyValues.map((latency) => (
-				<LatencyComponent key={latency} latencyMs={latency} />
-			))}
+			<div className="w-full space-y-8">
+				{latencyValues.map((latency) => (
+					<LatencyComponent key={latency} latencyMs={latency} />
+				))}
+			</div>
 		</div>
 	);
 }
