@@ -26,8 +26,8 @@ export default function Chat({ messages, onSendMessage }: ChatProps) {
 	};
 
 	return (
-		<div className="flex-1 border rounded-lg p-4 flex flex-col justify-end min-h-[300px]">
-			<div className="flex-grow overflow-y-auto mb-2">
+		<div className="border rounded-lg p-4 flex flex-col min-h-[300px]">
+			<div className="flex-grow mb-2">
 				{" "}
 				{messages.map((msg, index) => (
 					<div key={index} className="mb-1 text-white">
@@ -42,7 +42,7 @@ export default function Chat({ messages, onSendMessage }: ChatProps) {
 					placeholder="Type a message..."
 					value={currentMessage}
 					onChange={handleInputChange}
-					onKeyPress={handleKeyPress}
+					onKeyDown={handleKeyPress}
 					className="flex-1 p-2 border rounded"
 				/>
 				<button
