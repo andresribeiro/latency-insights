@@ -1,54 +1,15 @@
-# React + TypeScript + Vite
+# Latency Insights for Developers 👩‍💻
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is a web-based tool designed to help developers understand the impact of network latency on user experience. It simulates different network conditions to demonstrate how varying round-trip times (RTT) affect real-time communication (chat) and HTTP request loading times.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Simulated Latency:** Choose from a range of predefined latency values (50ms to 1000ms) to observe their effects.
+- **Real-time Chat Simulation:** Experience how latency impacts the responsiveness of a two-way chat between \"Alice\" and \"Bob.\" Messages are delayed based on the selected RTT.
+- **Simulated HTTP Request Loading:** See a breakdown of a simulated HTTP request's load time, including network RTT, DNS lookup, TCP handshake, TLS handshake, and server processing.
+- **Fake Tweets Loading:** Load a list of \"tech tweets\" with a delay that reflects the simulated HTTP load time, demonstrating how content delivery is affected by latency.
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+## How it Works
+The application uses `setTimeout` to simulate network delays.
+- **Chat:** When a message is sent, it's immediately displayed on the sender's side, but a delayed `setTimeout` is used to display it on the receiver's side, mimicking network propagation.
+- **HTTP Request:** The \"Load Tweets\" button triggers a `setTimeout` that accounts for the specified network latency, along with values for DNS, TCP, TLS, and server processing, before displaying the \"tweets.\"
