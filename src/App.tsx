@@ -22,6 +22,20 @@ export default function App() {
 					<LatencyComponent key={latency} latencyMs={latency} />
 				))}
 			</div>
+
+			<footer className="mt-8 text-center text-gray-400 text-sm">
+        <p>
+          Source code available on{" "}
+          <a
+            href="https://github.com/andresribeiro/latency-insights"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-400 hover:text-blue-600 underline"
+          >
+            GitHub
+          </a>
+        </p>
+      </footer>
 		</div>
 	);
 }
