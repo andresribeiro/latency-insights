@@ -12,17 +12,23 @@ export default function LatencyComponent({ latencyMs }: LatencyComponentProps) {
 	const handleAliceSendMessage = (message: string) => {
 		const fullMessage = `Alice: ${message}`;
 		setAliceMessages((prevMessages) => [...prevMessages, fullMessage]);
-		setTimeout(() => {
-			setBobMessages((prevMessages) => [...prevMessages, fullMessage]);
-		}, latencyMs);
+		setTimeout(
+			() => {
+				setBobMessages((prevMessages) => [...prevMessages, fullMessage]);
+			},
+			latencyMs * 2 + 20,
+		);
 	};
 
 	const handleBobSendMessage = (message: string) => {
 		const fullMessage = `Bob: ${message}`;
 		setBobMessages((prevMessages) => [...prevMessages, fullMessage]);
-		setTimeout(() => {
-			setAliceMessages((prevMessages) => [...prevMessages, fullMessage]);
-		}, latencyMs);
+		setTimeout(
+			() => {
+				setAliceMessages((prevMessages) => [...prevMessages, fullMessage]);
+			},
+			latencyMs * 2 + 20,
+		);
 	};
 
 	return (

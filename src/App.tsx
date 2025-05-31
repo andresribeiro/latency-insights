@@ -1,7 +1,7 @@
 import LatencyComponent from "./LatencyComponent";
 
-function App() {
-	const latencyValues = [50, 200, 500, 1000, 2000];
+export default function App() {
+	const latencyValues = [50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 1000];
 
 	return (
 		<div className="items-center flex flex-1 flex-col min-w-screen min-h-screen">
@@ -10,8 +10,16 @@ function App() {
 			</h1>
 
 			<p className="max-w-2xl mx-auto text-base sm:text-lg text-gray-700 dark:text-gray-300 mb-10 text-center">
-				This tool helps you analyze how network latency might affect your
-				application's user experience.
+				<b>
+					This tool helps you analyze how network latency might affect your
+					application's user experience.
+					<br />
+					<br />
+				</b>{" "}
+				The displayed latency simulates the two-way network delay for a message
+				to travel from sender to server, and from server to receiver. So for
+				50ms we actually delay 100ms, + 20ms (a reasonable server processing
+				time).
 			</p>
 
 			<div className="space-y-4">
@@ -22,5 +30,3 @@ function App() {
 		</div>
 	);
 }
-
-export default App;
